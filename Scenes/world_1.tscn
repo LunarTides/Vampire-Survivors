@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://c6do87ic7n1fr"]
+
+[ext_resource type="PackedScene" uid="uid://jpb8mapjhren" path="res://Scenes/player.tscn" id="1_te6r0"]
+[ext_resource type="PackedScene" uid="uid://dr5wb0bh1n3nx" path="res://Scenes/enemy.tscn" id="2_quq7j"]
+[ext_resource type="Script" path="res://Scripts/gamemanager.gd" id="3_ey5dm"]
+
+[node name="World1" type="Node2D"]
+
+[node name="Player" parent="." instance=ExtResource("1_te6r0")]
+position = Vector2(600, 320)
+
+[node name="Enemy" parent="." node_paths=PackedStringArray("target") instance=ExtResource("2_quq7j")]
+position = Vector2(247, 251)
+target = NodePath("../Player")
+
+[node name="GameManager" type="Node" parent="." node_paths=PackedStringArray("player")]
+script = ExtResource("3_ey5dm")
+player = NodePath("../Player")
+enemy_scene = ExtResource("2_quq7j")

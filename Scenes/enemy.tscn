@@ -1,0 +1,92 @@
+[gd_scene load_steps=14 format=3 uid="uid://dr5wb0bh1n3nx"]
+
+[ext_resource type="Script" path="res://Scripts/enemy.gd" id="1_rkkce"]
+[ext_resource type="Texture2D" uid="uid://q6i2safxaxd0" path="res://Assets/Enemies/zombie.png" id="2_g6rc3"]
+[ext_resource type="Resource" uid="uid://bleke35bmcuh7" path="res://Resources/Enemies/zombie.tres" id="2_tqbn0"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_20ec1"]
+atlas = ExtResource("2_g6rc3")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y8t8r"]
+atlas = ExtResource("2_g6rc3")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_diurn"]
+atlas = ExtResource("2_g6rc3")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vcnhi"]
+atlas = ExtResource("2_g6rc3")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_20m7k"]
+atlas = ExtResource("2_g6rc3")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ckhr4"]
+atlas = ExtResource("2_g6rc3")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yvphv"]
+atlas = ExtResource("2_g6rc3")
+region = Rect2(192, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7yf1p"]
+atlas = ExtResource("2_g6rc3")
+region = Rect2(224, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_y2ket"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_20ec1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y8t8r")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_diurn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vcnhi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_20m7k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ckhr4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yvphv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7yf1p")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 10.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pwvku"]
+size = Vector2(22, 24)
+
+[node name="Enemy" type="CharacterBody2D" groups=["enemies"]]
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("1_rkkce")
+enemy_resource = ExtResource("2_tqbn0")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_y2ket")
+animation = &"walk"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-3, 3)
+shape = SubResource("RectangleShape2D_pwvku")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-3, 3)
+shape = SubResource("RectangleShape2D_pwvku")

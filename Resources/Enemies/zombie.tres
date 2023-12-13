@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="Enemy" load_steps=4 format=3 uid="uid://bleke35bmcuh7"]
+
+[ext_resource type="Script" path="res://Resources/enemy.gd" id="1_t7kxv"]
+[ext_resource type="Texture2D" uid="uid://q6i2safxaxd0" path="res://Assets/Enemies/zombie.png" id="2_bqn51"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wnjpd"]
+atlas = ExtResource("2_bqn51")
+region = Rect2(0, 0, 32, 32)
+
+[resource]
+script = ExtResource("1_t7kxv")
+name = "Zombie"
+health = 5
+damage = 20
+speed = 25
+sprite = SubResource("AtlasTexture_wnjpd")
+sprite_frames = 8
