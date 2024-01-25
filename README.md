@@ -1,0 +1,3 @@
+A small Vampire Survivors "clone". This is bad, and never really worked out.
+
+All the art is placeholder btw, not that it matters...
